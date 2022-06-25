@@ -1,1 +1,10 @@
-/node_modules
+node_modules
+.DS_Store
+
+packages/*/dist
+packages/*/.DS_Store
+packages/*/node_modules
+
+examples/*/dist
+examples/*/.DS_Store
+examples/*/node_modules
