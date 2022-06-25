@@ -1,0 +1,26 @@
+{
+  "name": "vite-plugin-vue-store",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Jojoy",
+  "license": "ISC",
+  "keywords": [
+    "vite",
+    "plugin",
+    "pinia",
+    "vuex",
+    "devtools"
+  ],
+  "scripts": {
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.25.2",
+    "@types/node": "^16.11.41",
+    "esbuild": "^0.14.47",
+    "eslint": "^8.18.0",
+    "minimist": "^1.2.6",
+    "typescript": "~4.7.4",
+    "vitest": "^0.16.0"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "lib": ["ESNext", "dom"],
+    "target": "ESNext",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "types": ["vitest/globals"]
+  }
+}

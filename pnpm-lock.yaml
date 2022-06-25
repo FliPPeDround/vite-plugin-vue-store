@@ -1,0 +1,17 @@
+lockfileVersion: 5.4
+
+importers:
+
+  ../../Library/pnpm/store/v3/tmp/dlx-9781:
+    specifiers:
+      create-vue: ^3.2.2
+    dependencies:
+      create-vue: 3.2.2
+
+packages:
+
+  /create-vue/3.2.2:
+    resolution: {integrity: sha512-w5pD55zRkzCELYxvIer0X62IxJ3mfNeRbSNbMupexP3YAYD3faNb85L4ndT6rV0vG6yybnKwaOS4DFiNCYyssA==}
+    engines: {node: ^14.16.0 || >=16.0.0}
+    hasBin: true
+    dev: false
