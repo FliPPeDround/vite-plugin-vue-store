@@ -1,4 +1,4 @@
-import * as store from './../../../examples/vite-vue3/src/stores'
+const store = await import('./../../../examples/vite-vue3/src/stores')
 
 export function formatStoreToState() {
   const r = []
@@ -11,9 +11,13 @@ export function formatStoreToState() {
       key: i,
       value: store[i],
       editable: true,
-      objectType: 'reactive',
+      objectType: 'other',
     })
   }
 
   return r
+}
+
+export function formatStoreToEditable() {
+  return store
 }
