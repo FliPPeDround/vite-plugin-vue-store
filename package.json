@@ -12,6 +12,8 @@
     "devtools"
   ],
   "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
     "test": "vitest"
   },
   "devDependencies": {
@@ -20,6 +22,7 @@
     "esbuild": "^0.14.47",
     "eslint": "^8.18.0",
     "minimist": "^1.2.6",
+    "tsup": "^6.1.2",
     "typescript": "~4.7.4",
     "vitest": "^0.16.0"
   }

@@ -1,8 +1,11 @@
 import type { App } from '@vue/devtools-api'
 import { setupDevtoolsPlugin } from '@vue/devtools-api'
-import { formatStoreToState, formatStoreToEditable } from './formatting'
+import { formatStateToReactiveType, formatStoreToEditable, formatStoreToState, getStore } from './formatting'
+import type { SetStoresOptions } from './types'
 
-export function setupDevtools(app: App, _options: []) {
+export async function setupDevtools(app: App, options: SetStoresOptions) {
+  await getStore(options?.path)
+
   setupDevtoolsPlugin(
     {
       id: 'vite-plugin-vue-store',
@@ -28,16 +31,14 @@ export function setupDevtools(app: App, _options: []) {
         }
       })
       api.on.getInspectorState((payload, _context) => {
-        if (payload.inspectorId === 'vue-plugin-vue-store') {
-          payload.state = {
-            myState: formatStoreToState(),
-          }
-        }
+        if (payload.inspectorId === 'vue-plugin-vue-store')
+          payload.state = formatStateToReactiveType(formatStoreToState())
       })
-      api.on.editInspectorState((payload) => {
+
+      api.on.editInspectorState(async (payload) => {
         if (payload.inspectorId === 'vue-plugin-vue-store') {
           if (payload.nodeId === 'root') {
-            const {path, state} = payload
+            const { path, state } = payload
             payload.set(formatStoreToEditable(), path, state.value)
           }
         }

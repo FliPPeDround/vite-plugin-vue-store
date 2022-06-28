@@ -1,11 +1,18 @@
 <script setup lang="ts">
-import {data, addDataValue} from './stores'
-
+import { type Ref, onMounted } from 'vue'
+import { addDataValue, bar, data, foo } from './stores'
 </script>
 
 <template>
-  {{data.value}}
-  <button @click="addDataValue">add</button>
+  data: {{ data.value }}
+  <button @click="addDataValue">
+    add data
+  </button>
+  foo: {{ foo }}
+  <button @click="foo++">
+    add foo
+  </button>
+  bar: foo * 2 = {{ bar }}
 </template>
 
 <style>
