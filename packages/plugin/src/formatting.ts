@@ -1,9 +1,12 @@
 let store: { [x: string]: any }
 
 export async function getStore(path: string) {
-  store = path ? await import(`./../../../examples/vite-vue3/src/${path}.ts`) : await import('../../../examples/vite-vue3/src/stores')
-  // store = await import('./../../../examples/vite-vue3/src/stores/index')
+  // path = path ? `./../../../examples/vite-vue3/src/${path}.ts` : '../../../examples/vite-vue3/src/stores'
   // store = await import(path)
+  // path = '/Users/flippedround/Desktop/vite-plugin-vue-store/examples/vite-vue3/src/stores/index'
+  // store = await import(path)
+  // store = await import('./../../../examples/vite-vue3/src/stores/index')
+  store = await import('/Users/flippedround/Desktop/vite-plugin-vue-store/examples/vite-vue3/src/stores/index')
 }
 
 export function formatStoreToState() {
@@ -31,20 +34,20 @@ export function formatStoreToEditable() {
 
 export function formatStateToReactiveType(state: any[]) {
   const r = {
-    Ref: [],
-    Reactive: [],
-    Computed: [],
-    Function: [],
+    '1.Ref': [],
+    '2.Reactive': [],
+    '3.Computed': [],
+    '4.Function': [],
   }
   state.forEach((item) => {
     if (item.objectType === 'Ref')
-      r.Ref.push(item)
+      r['1.Ref'].push(item)
     if (item.objectType === 'Reactive')
-      r.Reactive.push(item)
+      r['2.Reactive'].push(item)
     if (item.objectType === 'Computed')
-      r.Computed.push(item)
+      r['3.Computed'].push(item)
     if (item.objectType === 'Function')
-      r.Function.push(item)
+      r['4.Function'].push(item)
   })
   return r
 }
